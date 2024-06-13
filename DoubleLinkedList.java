@@ -38,14 +38,20 @@ class DoubleLinkedList {
     
 
     void sort() {
-        if (head == null) return;
+        if (head == null || head == tail) {
+            return; 
+        }
 
-        Node current = head, index = null;
+        Node current = head;
+        Node index = null;
         TransaksiRental temp;
+
         while (current != null) {
             index = current.next;
             while (index != null) {
-                if (current.data.kodeTransaksi > index.data.kodeTransaksi) {
+  
+                if (current.data.namaPeminjam.compareTo(index.data.namaPeminjam) > 0) {
+
                     temp = current.data;
                     current.data = index.data;
                     index.data = temp;
@@ -55,9 +61,10 @@ class DoubleLinkedList {
             current = current.next;
         }
     }
+}
 
     
 
 
-}
+
 
